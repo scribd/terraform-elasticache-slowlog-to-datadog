@@ -94,9 +94,10 @@ resource aws_security_group egress {
   tags = var.tags
 }
 
-resource null_resource get_slowlog_archive {
+resource null_resource get_slowlog_check_archive {
   provisioner local-exec {
-    command = "wget https://github.com/scribd/elasticache-slowlog-to-datadog/releases/download/v1.0.0/slowlog_check.1.0.0.zip"
+    command     = "wget https://github.com/scribd/elasticache-slowlog-to-datadog/releases/download/v1.0.0/slowlog_check.1.0.0.zip"
+    working_dir = path.module
   }
 }
 
