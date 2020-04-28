@@ -3,7 +3,7 @@
 **Deploy Elasticache Slowlog to Datadog lambda function to AWS account**
 
 This terraform module deploys [elasticache-slowlog-to-datadog](https://github.com/scribd/elasticache-slowlog-to-datadog)
-to AWS to submit Elasticache slowlog entries. 
+to AWS so that slowlog entry metrics can be submitted to Datadog. 
 
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
