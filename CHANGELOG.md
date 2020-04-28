@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.0.1...v1.0.2) (2020-04-28)
+
+
+### Bug Fixes
+
+* do not add leading and trailing slashes ([582355d](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/582355dc966ca9e447a7e1b73875b0f725334637))
+
 ## [1.0.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.0.0...v1.0.1) (2020-04-28)
 
 
