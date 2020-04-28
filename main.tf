@@ -134,7 +134,7 @@ resource "aws_lambda_function" "slowlog_check" {
   environment {
     variables = {
       REDIS_HOST = var.elasticache_endpoint
-      SSM_PATH   = "/${var.ssm_path}/"
+      SSM_PATH   = "${var.ssm_path}"
       NAMESPACE  = var.namespace
       ENV        = var.env
       METRICNAME = var.metric_name
