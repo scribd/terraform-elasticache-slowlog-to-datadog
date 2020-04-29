@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.0.2...v1.1.0) (2020-04-29)
+
+
+### Features
+
+* fire every minute ([dbda772](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/dbda772fd5c8fa5f2563528468c595b792d78348))
+
 ## [1.0.2](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.0.1...v1.0.2) (2020-04-28)
 
 
