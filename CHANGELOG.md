@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.2.0...v1.2.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* correct dependency on null_resource ([2f30ccb](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/2f30ccb0103060b6d4af7a8de9c9479a2539750b))
+
 # [1.2.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.1.0...v1.2.0) (2020-04-29)
 
 
