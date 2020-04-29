@@ -96,7 +96,7 @@ resource aws_security_group egress {
 
 resource null_resource get_slowlog_check_archive {
   provisioner local-exec {
-    command     = "wget https://github.com/scribd/elasticache-slowlog-to-datadog/releases/download/v1.0.0/slowlog_check.1.0.0.zip"
+    command     = "wget https://github.com/scribd/elasticache-slowlog-to-datadog/releases/download/v1.0.1/slowlog_check.1.0.1.zip"
     working_dir = path.module
   }
 }
@@ -120,8 +120,8 @@ resource aws_ssm_parameter datadog_app_key {
 
 resource "aws_lambda_function" "slowlog_check" {
   function_name    = "slowlog_check"
-  filename         = "${path.module}/slowlog_check.1.0.0.zip"
-  source_code_hash = "MDgxYjVkZmMyNDkzODg1ZDJiMzBiY2FmYWI5NWNkMTQ1MjQ0Y2ViNDkzZTFhM2I3OGFhMmU3MzZiOWFhZTJiMw=="
+  filename         = "${path.module}/slowlog_check.1.0.1.zip"
+  source_code_hash = "Xn5bMbrSmVqdHMjchEAk/r2TJT6cHdQfIXRIaZo7vdQ="
   role             = aws_iam_role.slowlog_check.arn
   handler          = "lambda_function.lambda_handler"
   runtime          = "ruby2.5"
