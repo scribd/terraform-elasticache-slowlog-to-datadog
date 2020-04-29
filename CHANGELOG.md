@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.1.0...v1.2.0) (2020-04-29)
+
+
+### Features
+
+* Use v1.0.1 of elasticache-slowlog-to-datadog ([a3195a1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/a3195a143daaf569c1a93309d1ab44e19ae2fc87))
+
 # [1.1.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.0.2...v1.1.0) (2020-04-29)
 
 
