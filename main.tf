@@ -142,7 +142,7 @@ resource "aws_lambda_function" "slowlog_check" {
   }
 
   tags       = var.tags
-  depends_on = [null_resource.get_slowlog_archive]
+  depends_on = [null_resource.get_slowlog_check_archive]
 }
 
 resource aws_lambda_function_event_invoke_config slowlog_check {
