@@ -1,7 +1,7 @@
 resource aws_cloudwatch_event_rule slowlog_check {
   name_prefix         = "slowlog_check_every_minute"
   description         = "Check for slowlogs every five minutes"
-  schedule_expression = "cron(0/5 * * * ? *)" # every 5 minute
+  schedule_expression = "rate(1 minute)"
   tags                = var.tags
 }
 
