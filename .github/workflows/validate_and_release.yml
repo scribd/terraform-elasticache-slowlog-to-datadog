@@ -7,6 +7,7 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
+    id: terraform
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -43,6 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     if: github.event_name == 'push'
+    needs: terraform
     runs-on: ubuntu-latest
 
     steps:
