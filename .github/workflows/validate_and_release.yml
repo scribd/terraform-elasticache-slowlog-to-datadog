@@ -7,7 +7,6 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    id: terraform
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
