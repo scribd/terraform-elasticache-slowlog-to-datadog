@@ -1,3 +1,16 @@
+## [1.3.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.3.0...v1.3.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* no more LFS of the release zip ([e82dd38](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/e82dd380ae269690e448285beb6f5b7c50607a5f))
+* stop tracking zip through git lfs, due to compatibility concerns ([0bd7713](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/0bd7713ee8fa4db98081312eaa37b354770d1962))
+
+
+### Reverts
+
+* Revert "chore(release): 1.3.0-alpha.1 [skip ci]" ([48aff63](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/48aff6324d436b93ffa707f34a85c38dc2559372))
+
 # [1.3.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.2.1...v1.3.0) (2020-04-30)
 
 
