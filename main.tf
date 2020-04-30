@@ -20,7 +20,7 @@ resource aws_lambda_permission slowlog_check {
 
 
 resource aws_iam_role slowlog_check {
-  name = "slowlog_check"
+  name_prefix = "slowlog_check"
 
   assume_role_policy = <<EOF
 {
@@ -40,7 +40,7 @@ EOF
 }
 
 resource aws_iam_policy slowlog_check {
-  name        = "slowlog_check"
+  name_prefix = "slowlog_check"
   path        = "/"
   description = "This IAM policy allows the slowlog_check to run"
 
@@ -102,7 +102,7 @@ resource null_resource get_slowlog_check_archive {
 }
 
 resource aws_ssm_parameter datadog_api_key {
-  name        = "/${var.ssm_path}/DATADOG_API_KEY"
+  name        = "/${var.ssm_path}/${local.replication_group}/DATADOG_API_KEY"
   description = "Datadog API Key"
   tags        = var.tags
   type        = "SecureString"
@@ -110,7 +110,7 @@ resource aws_ssm_parameter datadog_api_key {
 }
 
 resource aws_ssm_parameter datadog_app_key {
-  name        = "/${var.ssm_path}/DATADOG_APP_KEY"
+  name        = "/${var.ssm_path}/${local.replication_group}/DATADOG_APP_KEY"
   description = "Datadog App Key"
   tags        = var.tags
   type        = "SecureString"
@@ -119,7 +119,7 @@ resource aws_ssm_parameter datadog_app_key {
 
 
 resource "aws_lambda_function" "slowlog_check" {
-  function_name    = "slowlog_check"
+  function_name    = "slowlog_check_for_${local.replication_group}"
   filename         = "${path.module}/slowlog_check.1.0.1.zip"
   source_code_hash = "Xn5bMbrSmVqdHMjchEAk/r2TJT6cHdQfIXRIaZo7vdQ="
   role             = aws_iam_role.slowlog_check.arn
@@ -134,7 +134,7 @@ resource "aws_lambda_function" "slowlog_check" {
   environment {
     variables = {
       REDIS_HOST = var.elasticache_endpoint
-      SSM_PATH   = "${var.ssm_path}"
+      SSM_PATH   = "${var.ssm_path}/${local.replication_group}"
       NAMESPACE  = var.namespace
       ENV        = var.env
       METRICNAME = var.metric_name
