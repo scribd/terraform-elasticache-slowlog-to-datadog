@@ -39,7 +39,7 @@ variable metric_name {
 }
 
 variable ssm_path {
-  description = "Custom SSM path to provision Datadog access ID's in. Leading slash ommitted. The final SSM paths will look like: `/$ssm_path/$elasticache_endpoint/DATADOG_API_KEY`"
+  description = "Custom SSM path to provision Datadog access ID's in. Leading slash ommitted. The final SSM paths will look like: `/$ssm_path/$replication_group/DATADOG_API_KEY`"
   default     = "slowlog_check"
 }
 
