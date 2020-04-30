@@ -10,18 +10,6 @@
 
 * enable multiple invocations of the module in a single account ([9a7a764](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/9a7a7648c3929e3e3a9f0c06a6f0b03cd644eca8))
 
-# [1.3.0-alpha.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.2.1...v1.3.0-alpha.1) (2020-04-30)
-
-
-### Bug Fixes
-
-* give up on using null_resource to save on shipping a binary ([8144204](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/814420446e1bad24edc00867659550b0e3a98370))
-
-
-### Features
-
-* enable multiple invocations of the module in a single account ([9a7a764](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/9a7a7648c3929e3e3a9f0c06a6f0b03cd644eca8))
-
 ## [1.2.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.2.0...v1.2.1) (2020-04-29)
 
 
