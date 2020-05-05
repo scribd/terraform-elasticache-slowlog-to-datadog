@@ -1,6 +1,6 @@
 locals {
-  slowlog_check_archive_basename = "slowlog_check.1.1.0-alpha.1.zip"
-  slowlog_check_archive_hash     = "qpNNoxQByBtRVZFgTRFoMZOZXEF4sjOb23ElqJmoXZ8=" # generated with filebase64sha256()
+  slowlog_check_archive_basename = "slowlog_check.1.1.0.zip"
+  slowlog_check_archive_hash     = "q/73+Hhb8WMNuCeh2x6E64q5hAJ397v8wcBSx/WYBpY="
   slowlog_check_archive_path     = "${path.module}/files/${local.slowlog_check_archive_basename}"
 
   search_replication_group    = "(?P<first>[0-9A-Za-z_-]+)\\.(?P<second>[0-9A-Za-z_-]+)\\.{0,1}(?P<third>[0-9A-Za-z_]*)\\.(?P<region>[0-9A-Za-z_-]+)\\.cache\\.amazonaws\\.com:{0,1}(?P<port>[0-9]*)"
