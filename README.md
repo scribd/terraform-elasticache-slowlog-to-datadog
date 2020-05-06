@@ -5,6 +5,8 @@
 This terraform module deploys [elasticache-slowlog-to-datadog](https://github.com/scribd/elasticache-slowlog-to-datadog)
 to AWS so that slowlog entry metrics can be submitted to Datadog. 
 
+![Release](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/workflows/Release/badge.svg)
+[![terraformregistry](https://img.shields.io/badge/terraform-registry-blueviolet)](https://registry.terraform.io/modules/scribd/slowlog-to-datadog/elasticache)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # Usage
