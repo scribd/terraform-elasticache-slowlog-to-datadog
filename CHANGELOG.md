@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.4.0...v1.4.1) (2020-05-08)
+
+
+### Bug Fixes
+
+* apply correct zip distribution of slowlog_check ([67c6c95](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/67c6c954e933bfce4a20262e81526fcc051e916e))
+
 # [1.4.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.3.1...v1.4.0) (2020-05-05)
 
 
