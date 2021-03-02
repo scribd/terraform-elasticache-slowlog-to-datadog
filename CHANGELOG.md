@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.5.0...v1.5.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* Support primary endpoint URL format ([67e68bc](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/67e68bce12c69a99ceab126c96dfb48537aed9ad))
+
 # [1.5.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.4.1...v1.5.0) (2020-06-10)
 
 
