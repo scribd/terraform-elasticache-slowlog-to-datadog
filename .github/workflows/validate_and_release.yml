@@ -7,25 +7,22 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
+    strategy:
+      matrix:
+        terraform: [0.12.31, 0.13.7, 0.14.11, 0.15.5, 1.0.11, 1.1.9, 1.2.9, 1.3.8]
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: 'Terraform Format'
-        uses: hashicorp/terraform-github-actions@master
+        uses: hashicorp/setup-terraform@v2
         with:
-          tf_actions_version: 0.12.24
-          tf_actions_subcommand: 'fmt'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.24
-          tf_actions_subcommand: 'init'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          terraform_version: ${{ matrix.terraform }}
+      
+      - run: |
+          terraform fmt
+          terraform init
 
       - name: 'Inject provider configs for validate command'
         run: |
@@ -34,27 +31,24 @@ jobs:
               region = "us-east-2"
             }
             EOF
-      - name: 'Terraform Validate'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.24
-          tf_actions_subcommand: 'validate'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run : |
+          terraform validate
+
   release:
     if: github.event_name == 'push'
     needs: terraform
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Semantic Release
       id: semantic
-      uses: cycjimmy/semantic-release-action@v2
+      uses: cycjimmy/semantic-release-action@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        semantic_version: 17
+        semantic_version: 19
         extra_plugins: |
           @semantic-release/changelog
           @semantic-release/git
