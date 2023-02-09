@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.5.1...v2.0.0) (2023-02-09)
+
+
+* feat! release elasticache-slowlog-to-datadog v2.0.0 (#17) ([661aaf7](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/commit/661aaf7ef07ad972d54f84dc11b0a2d93186c338)), closes [#17](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/issues/17)
+
+
+### BREAKING CHANGES
+
+* No longer supports the ruby-2.5 runtime
+
 ## [1.5.1](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/compare/v1.5.0...v1.5.1) (2021-03-02)
 
 
