@@ -1,6 +1,6 @@
 locals {
-  slowlog_check_archive_basename = "slowlog_check.1.3.0.zip"
-  slowlog_check_archive_hash     = "H2YmQMqSwV8uSC6TXVJJLykkYUTj1e+g8Bi9Nijiex4="
+  slowlog_check_archive_basename = "slowlog_check.2.0.0.zip"
+  slowlog_check_archive_hash     = filebase64sha256("${path.module}/files/${local.slowlog_check_archive_basename}")
   slowlog_check_archive_path     = "${path.module}/files/${local.slowlog_check_archive_basename}"
 
   # https://pythex.org/?regex=(%3FP%3Cfirst%3E%5B0-9A-Za-z_-%5D%2B)%5C.(%3FP%3Csecond%3E%5B0-9A-Za-z_-%5D%2B)%5C.%7B0%2C1%7D(%3FP%3Cthird%3E%5B0-9A-Za-z_%5D*)%5C.%7B0%2C1%7D(%3FP%3Cfourth%3E%5B0-9A-Za-z_%5D*)%5C.(%3FP%3Cregion%3E%5B0-9A-Za-z_-%5D%2B)%5C.cache%5C.amazonaws%5C.com%3A%7B0%2C1%7D(%3FP%3Cport%3E%5B0-9%5D*)&test_string=cluster-one.abcdef.0001.use1.cache.amazonaws.com%3A6379%0Acluster-two.abcdef.ng.0001.use1.cache.amazonaws.com%3A6379%0Amaster.cluster-three.abcdef.use1.cache.amazonaws.com%3A6379%0A&ignorecase=0&multiline=0&dotall=0&verbose=0
