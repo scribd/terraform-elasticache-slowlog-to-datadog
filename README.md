@@ -48,7 +48,7 @@ tags                        | object       | Additional tags to create resources
 
 To use *terraform-elasticache-slowlog-to-datadog* you need:
 
-- An AWS account with an Elasticache instance running the `redis5.0` engine.
+- An AWS account with an Elasticache instance running the `redis5.0+` engine.
 - A Datadog account
 
 # Development

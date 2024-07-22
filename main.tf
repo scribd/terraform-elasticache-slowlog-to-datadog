@@ -117,7 +117,7 @@ resource "aws_lambda_function" "slowlog_check" {
   source_code_hash = local.slowlog_check_archive_hash
   role             = aws_iam_role.slowlog_check.arn
   handler          = "lambda_function.lambda_handler"
-  runtime          = "ruby2.7"
+  runtime          = "ruby3.3"
   vpc_config {
     subnet_ids         = var.subnet_ids
     security_group_ids = concat([aws_security_group.egress.id], var.elasticache_security_groups)
