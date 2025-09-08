@@ -131,7 +131,7 @@ resource "aws_lambda_function" "slowlog_check" {
       NAMESPACE  = var.namespace
       ENV        = var.env
       METRICNAME = var.metric_name
-      DD_HOSTNAME = "slowlog-check-${local.replication_group}"
+      HOSTNAME = "slowlog-check-${local.replication_group}"
     }
   }
 
