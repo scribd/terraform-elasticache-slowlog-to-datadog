@@ -1,5 +1,5 @@
 locals {
-  slowlog_check_archive_basename = "slowlog_check.3.0.0.zip"
+  slowlog_check_archive_basename = "slowlog_check.3.0.5.zip"
   slowlog_check_archive_hash     = filebase64sha256("${path.module}/files/${local.slowlog_check_archive_basename}")
   slowlog_check_archive_path     = "${path.module}/files/${local.slowlog_check_archive_basename}"
 
