@@ -37,6 +37,8 @@ resource aws_iam_role slowlog_check {
   ]
 }
 EOF
+
+  tags = var.tags
 }
 
 resource aws_iam_policy slowlog_check {
@@ -62,6 +64,8 @@ resource aws_iam_policy slowlog_check {
     ]
 }
 EOF
+
+  tags = var.tags
 }
 
 resource aws_iam_role_policy_attachment "lambda_vpc_0" {
