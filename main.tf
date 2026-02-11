@@ -1,16 +1,16 @@
-resource aws_cloudwatch_event_rule slowlog_check {
+resource "aws_cloudwatch_event_rule" "slowlog_check" {
   name_prefix         = "slowlog_check_every_minute"
   description         = "Check for slowlogs every minute"
   schedule_expression = "rate(1 minute)"
   tags                = var.tags
 }
 
-resource aws_cloudwatch_event_target slowlog_check {
+resource "aws_cloudwatch_event_target" "slowlog_check" {
   rule = aws_cloudwatch_event_rule.slowlog_check.name
   arn  = aws_lambda_function.slowlog_check.arn
 }
 
-resource aws_lambda_permission slowlog_check {
+resource "aws_lambda_permission" "slowlog_check" {
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.slowlog_check.function_name
@@ -18,8 +18,7 @@ resource aws_lambda_permission slowlog_check {
   source_arn    = aws_cloudwatch_event_rule.slowlog_check.arn
 }
 
-
-resource aws_iam_role slowlog_check {
+resource "aws_iam_role" "slowlog_check" {
   name_prefix = "slowlog_check"
 
   assume_role_policy = <<EOF
@@ -41,7 +40,7 @@ EOF
   tags = var.tags
 }
 
-resource aws_iam_policy slowlog_check {
+resource "aws_iam_policy" "slowlog_check" {
   name_prefix = "slowlog_check"
   path        = "/"
   description = "This IAM policy allows the slowlog_check to run"
@@ -68,17 +67,17 @@ EOF
   tags = var.tags
 }
 
-resource aws_iam_role_policy_attachment "lambda_vpc_0" {
+resource "aws_iam_role_policy_attachment" "lambda_vpc_0" {
   role       = aws_iam_role.slowlog_check.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }
 
-resource aws_iam_role_policy_attachment "lambda_vpc_1" {
+resource "aws_iam_role_policy_attachment" "lambda_vpc_1" {
   role       = aws_iam_role.slowlog_check.name
   policy_arn = aws_iam_policy.slowlog_check.arn
 }
 
-resource aws_security_group egress {
+resource "aws_security_group" "egress" {
   name_prefix = "egress-https"
   description = "Allow outbound https calls"
   vpc_id      = var.vpc_id
@@ -98,7 +97,7 @@ resource aws_security_group egress {
   tags = var.tags
 }
 
-resource aws_ssm_parameter datadog_api_key {
+resource "aws_ssm_parameter" "datadog_api_key" {
   name        = "/${var.ssm_path}/${local.replication_group}/DATADOG_API_KEY"
   description = "Datadog API Key"
   tags        = var.tags
@@ -106,7 +105,7 @@ resource aws_ssm_parameter datadog_api_key {
   value       = var.datadog_api_key
 }
 
-resource aws_ssm_parameter datadog_app_key {
+resource "aws_ssm_parameter" "datadog_app_key" {
   name        = "/${var.ssm_path}/${local.replication_group}/DATADOG_APP_KEY"
   description = "Datadog App Key"
   tags        = var.tags
@@ -135,14 +134,14 @@ resource "aws_lambda_function" "slowlog_check" {
       NAMESPACE  = var.namespace
       ENV        = var.env
       METRICNAME = var.metric_name
-      HOSTNAME = "slowlog-check-${local.replication_group}"
+      HOSTNAME   = "slowlog-check-${local.replication_group}"
     }
   }
 
   tags = var.tags
 }
 
-resource aws_lambda_function_event_invoke_config slowlog_check {
+resource "aws_lambda_function_event_invoke_config" "slowlog_check" {
   function_name          = aws_lambda_function.slowlog_check.function_name
   maximum_retry_attempts = 0
 }
